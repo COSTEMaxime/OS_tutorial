@@ -24,3 +24,25 @@ nasm -f bin example.asm -o example.bin
 qemu-system-x86_64 -curses example.bin
 ```
 
+Quit the simulation without restarting :
+```
+Alt + 2
+quit
+```
+
+**4. Compile C code**
+
+Compile C code into .o file
+```
+gcc -ffreestanding -c main.c -o main.o
+```
+
+View object file (.0) content
+```
+objdump -d main.o
+```
+
+Link and generate binary file
+```
+ld -o main.bin -Ttext 0x0 --oformat binary main.o
+```
